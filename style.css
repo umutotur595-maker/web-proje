@@ -1,0 +1,315 @@
+/*
+  ust-menu: ust navigasyon ve logo
+  menu-link, aktif: menu baglantilari ve secili sayfa
+  hero-kutusu, hero-gorsel, hero-metin: ana sayfa karşılama
+  hakkimda-kutu: hastane hakkinda metin kutusu
+  doktorlar-alan, doktor-karti, doktor-foto: doktor kartlari
+  randevu-formu, gonder-buton: randevu formu ve buton
+  ad-soyad-satir, tarih-secim-satir: yan yana secim satirlari
+  saat-ac-buton, saat-panel, saat-izgara: saat secim alani
+  saat-slot, dolu, secili, gizli: saat kutusu durumlari
+  sms-notu: soluk SMS bilgi yazisi
+  randevu-liste-kutu, randevu-tablo: randevu listesi tablosu
+  bos-mesaj: bos liste uyarisi
+  durum-aktif: yesil aktif yazisi
+  durum-iptal: iptal edilmis yazisi
+  iptal-buton: kirmizi yuvarlatilmis iptal dugmesi
+  durum-hucre: durum ve buton hucre stili
+  sayfa-alt: footer
+*/
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f9fd;
+  color: #1e3a5f;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1; padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+.ust-menu {
+  background: linear-gradient(135deg, #1a6fb5, #2589c9);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(26, 111, 181, 0.25);
+}
+
+.logo-link { text-decoration: none; color: inherit; }
+
+.logo-link:hover .logo-baslik { opacity: 0.9; }
+
+.logo-baslik { font-size: 1.4rem; font-weight: 600; color: #fff; }
+
+.ust-menu nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.menu-link {
+  color: #e8f4fc;
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.menu-link:hover, .menu-link.aktif { background: rgba(255, 255, 255, 0.2); color: #fff; }
+
+.hero-kutusu {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(26, 111, 181, 0.15);
+  margin-bottom: 2rem;
+}
+
+.hero-gorsel { width: 100%; height: 320px; object-fit: cover; display: block; }
+
+.hero-metin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(26, 111, 181, 0.85));
+  color: #fff;
+}
+
+.hero-metin h2 { font-size: 2rem; margin-bottom: 0.25rem; }
+
+.hakkimda-kutu {
+  background: #fff;
+  padding: 1.75rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.hakkimda-kutu h3 { color: #1a6fb5; margin-bottom: 0.75rem; }
+
+.sayfa-baslik { text-align: center; color: #1a6fb5; margin-bottom: 1.5rem; }
+
+.doktorlar-alan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.doktor-karti {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(26, 111, 181, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.doktor-karti:hover { transform: translateY(-4px); }
+
+.doktor-foto { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+.doktor-isim { padding: 1rem 1rem 0.25rem; font-size: 1.1rem; }
+
+.doktor-bolum { padding: 0 1rem 1.25rem; color: #2589c9; font-weight: 500; }
+
+.form-sayfa, .liste-sayfa { display: flex; flex-direction: column; align-items: center; }
+
+.randevu-formu {
+  background: #fff;
+  padding: 2rem 2.25rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(26, 111, 181, 0.12);
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.randevu-formu > label,
+.randevu-formu > input,
+.randevu-formu > select,
+.randevu-formu > small,
+.randevu-formu > .ad-soyad-satir,
+.randevu-formu > .tarih-secim-satir,
+.randevu-formu > .saat-secim-wrap,
+.randevu-formu > .gonder-buton {
+  width: 100%;
+  max-width: 460px;
+}
+
+.ad-soyad-satir,
+.tarih-secim-satir {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.ad-soyad-satir > div { min-width: 0; }
+
+.tarih-secim-satir select { margin-top: 0; }
+
+.randevu-formu label { font-weight: 500; margin-top: 0.5rem; color: #1a6fb5; align-self: flex-start; max-width: 460px; width: 100%; }
+
+.ad-soyad-satir label { margin-top: 0; }
+
+.randevu-formu input,
+.randevu-formu select {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #c5dff0;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.randevu-formu input:focus,
+.randevu-formu select:focus {
+  outline: none;
+  border-color: #1a6fb5;
+  box-shadow: 0 0 0 3px rgba(26, 111, 181, 0.15);
+}
+
+.sms-notu { color: #8aa8c4; font-size: 0.8rem; margin-top: -0.25rem; align-self: flex-start; }
+
+.saat-secim-wrap { position: relative; margin-top: 0.25rem; }
+
+.saat-ac-buton {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #c5dff0;
+  border-radius: 8px;
+  background: #fff;
+  color: #1e3a5f;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.saat-ac-buton:hover { border-color: #1a6fb5; }
+
+.saat-panel {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: #f8fbfe;
+  border: 1px solid #c5dff0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(26, 111, 181, 0.1);
+}
+
+.saat-panel.gizli { display: none; }
+
+.saat-panel-baslik { font-size: 0.85rem; color: #5a7a9a; margin-bottom: 0.75rem; text-align: center; }
+
+.saat-izgara { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+
+.saat-slot {
+  padding: 0.5rem 0.25rem;
+  border: 1px solid #c5dff0;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a6fb5;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.saat-slot:hover { background: #e8f4fc; border-color: #1a6fb5; }
+
+.saat-slot.secili { background: #1a6fb5; color: #fff; border-color: #1a6fb5; }
+
+.saat-slot.dolu {
+  background: #e8eef3;
+  color: #a8b8c8;
+  border-color: #dce4ec;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.gonder-buton {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  max-width: 460px;
+  background: #1a6fb5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.gonder-buton:hover { background: #155a94; }
+
+.randevu-liste-kutu {
+  width: 100%;
+  max-width: 960px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(26, 111, 181, 0.1);
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.randevu-tablo { width: 100%; border-collapse: collapse; }
+
+.randevu-tablo th,
+.randevu-tablo td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e8f0f6; }
+
+.randevu-tablo th { background: #e8f4fc; color: #1a6fb5; font-weight: 600; }
+
+.randevu-tablo tr:hover td { background: #f8fbfe; }
+
+.durum-hucre { white-space: nowrap; }
+
+.durum-aktif {
+  color: #1e9e5a;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.durum-iptal { color: #9aa8b8; font-weight: 500; }
+
+.iptal-buton {
+  padding: 0.4rem 0.85rem;
+  background: #d64545;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.iptal-buton:hover { background: #b83838; }
+
+.bos-mesaj { text-align: center; color: #8aa8c4; padding: 2rem; }
+
+.sayfa-alt {
+  text-align: center;
+  padding: 1rem;
+  background: #1a6fb5;
+  color: #e8f4fc;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+@media (max-width: 600px) {
+  .hero-gorsel { height: 220px; }
+  .hero-metin h2 { font-size: 1.5rem; }
+  .randevu-formu { padding: 1.5rem 1.25rem; max-width: 100%; }
+  .ad-soyad-satir,
+  .tarih-secim-satir { grid-template-columns: 1fr; }
+  .saat-izgara { grid-template-columns: repeat(3, 1fr); }
+}

@@ -1,0 +1,59 @@
+<!--
+  ust-menu, logo-baslik, menu-link: ust navigasyon
+  doktorlar-alan: doktor kartlarinin bulundugu ana bolum
+  doktor-karti: tek doktor karti kutusu
+  doktor-foto: doktor fotografi placeholder img
+  doktor-isim: doktor adi basligi
+  doktor-bolum: uzmanlik bolumu metni
+  sayfa-alt: alt bilgi
+-->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doktorlar | Saglik Hastanesi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="ust-menu">
+    <a href="index.html" class="logo-link"><h1 class="logo-baslik">Saglik Hastanesi</h1></a>
+    <nav>
+      <a class="menu-link" href="index.html">Ana Sayfa</a>
+      <a class="menu-link aktif" href="doktorlar.html">Doktorlar</a>
+      <a class="menu-link" href="randevu-al.html">Randevu Al</a>
+      <a class="menu-link" href="randevularim.html">Randevularim</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="sayfa-baslik">Uzman Doktorlarimiz</h2>
+    <section class="doktorlar-alan">
+      <article class="doktor-karti">
+        <img class="doktor-foto" src="https://via.placeholder.com/300x220/1a6fb5/ffffff?text=Dr.+Ahmet" alt="Dr. Ahmet Yilmaz">
+        <h3 class="doktor-isim">Dr. Ahmet Yilmaz</h3>
+        <p class="doktor-bolum">Kardiyoloji</p>
+      </article>
+      <article class="doktor-karti">
+        <img class="doktor-foto" src="https://via.placeholder.com/300x220/2589c9/ffffff?text=Dr.+Elif" alt="Dr. Elif Kaya">
+        <h3 class="doktor-isim">Dr. Elif Kaya</h3>
+        <p class="doktor-bolum">Kardiyoloji</p>
+      </article>
+      <article class="doktor-karti">
+        <img class="doktor-foto" src="https://via.placeholder.com/300x220/1a6fb5/ffffff?text=Dr.+Mehmet" alt="Dr. Mehmet Demir">
+        <h3 class="doktor-isim">Dr. Mehmet Demir</h3>
+        <p class="doktor-bolum">Goz Hastaliklari</p>
+      </article>
+      <article class="doktor-karti">
+        <img class="doktor-foto" src="https://via.placeholder.com/300x220/2589c9/ffffff?text=Dr.+Zeynep" alt="Dr. Zeynep Celik">
+        <h3 class="doktor-isim">Dr. Zeynep Celik</h3>
+        <p class="doktor-bolum">Dahiliye</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="sayfa-alt">
+    <p>&copy; 2026 Saglik Hastanesi. Tum haklari saklidir.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!--
+  ust-menu, menu-link: navigasyon
+  randevu-formu: randevu kayit formu
+  bolumSecimi: bolum secim select
+  doktorSecimi: doktor secim select
+  tarihAy, tarihGun: 2026 ay ve gun secimi
+  randevuTarihi: secilen tarihin gizli degeri (YYYY-MM-DD)
+  tarih-secim-satir: ay ve gun yan yana satir
+  tcKimlik: TC kimlik numarasi input
+  hastaAd: hasta adi input
+  hastaSoyad: hasta soyadi input
+  babaAdi: baba adi input
+  ad-soyad-satir: ad ve soyad yan yana satir
+  telefonNumarasi: telefon input
+  saatAcButon: saat secim panelini acan dugme
+  randevuSaati: secilen saat (gizli input)
+  saatPanel: saat kutularinin acildigi alan
+  saatIzgarasi: yarim saatlik randevu slotlari
+  saat-slot, dolu, secili: saat kutusu stilleri
+  sms-notu: SMS bilgilendirme yazisi
+  gonder-buton: form gonder dugmesi
+-->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Randevu Al | Saglik Hastanesi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="ust-menu">
+    <a href="index.html" class="logo-link"><h1 class="logo-baslik">Saglik Hastanesi</h1></a>
+    <nav>
+      <a class="menu-link" href="index.html">Ana Sayfa</a>
+      <a class="menu-link" href="doktorlar.html">Doktorlar</a>
+      <a class="menu-link aktif" href="randevu-al.html">Randevu Al</a>
+      <a class="menu-link" href="randevularim.html">Randevularim</a>
+    </nav>
+  </header>
+
+  <main class="form-sayfa">
+    <h2 class="sayfa-baslik">Online Randevu</h2>
+    <form id="randevuFormu" class="randevu-formu">
+      <label for="bolumSecimi">Bolum Secimi</label>
+      <select id="bolumSecimi" name="bolumSecimi" required>
+        <option value="">Bolum seciniz</option>
+        <option value="Kardiyoloji">Kardiyoloji</option>
+        <option value="Goz Hastaliklari">Goz Hastaliklari</option>
+        <option value="Dahiliye">Dahiliye</option>
+      </select>
+
+      <label for="doktorSecimi">Doktor Secimi</label>
+      <select id="doktorSecimi" name="doktorSecimi" required disabled>
+        <option value="">Once bolum seciniz</option>
+        <option value="Dr. Ahmet Yilmaz" data-bolum="Kardiyoloji">Dr. Ahmet Yilmaz</option>
+        <option value="Dr. Elif Kaya" data-bolum="Kardiyoloji">Dr. Elif Kaya</option>
+        <option value="Dr. Mehmet Demir" data-bolum="Goz Hastaliklari">Dr. Mehmet Demir</option>
+        <option value="Dr. Zeynep Celik" data-bolum="Dahiliye">Dr. Zeynep Celik</option>
+      </select>
+
+      <label>Randevu Tarihi (2026)</label>
+      <div class="tarih-secim-satir">
+        <select id="tarihAy" required>
+          <option value="">Ay seciniz</option>
+        </select>
+        <select id="tarihGun" required disabled>
+          <option value="">Gun seciniz</option>
+        </select>
+      </div>
+      <input type="hidden" id="randevuTarihi" name="randevuTarihi">
+
+      <label for="tcKimlik">TC Kimlik No</label>
+      <input type="text" id="tcKimlik" name="tcKimlik" maxlength="11" required>
+
+      <div class="ad-soyad-satir">
+        <div>
+          <label for="hastaAd">Ad</label>
+          <input type="text" id="hastaAd" name="hastaAd" required>
+        </div>
+        <div>
+          <label for="hastaSoyad">Soyad</label>
+          <input type="text" id="hastaSoyad" name="hastaSoyad" required>
+        </div>
+      </div>
+
+      <label for="babaAdi">Baba Adi</label>
+      <input type="text" id="babaAdi" name="babaAdi" required>
+
+      <label for="telefonNumarasi">Telefon Numarasi</label>
+      <input type="tel" id="telefonNumarasi" name="telefonNumarasi" required>
+      <small class="sms-notu">SMS dogrulamasi icin</small>
+
+      <label>Randevu Saati</label>
+      <div class="saat-secim-wrap">
+        <button type="button" id="saatAcButon" class="saat-ac-buton">Saat seciniz</button>
+        <input type="hidden" id="randevuSaati" name="randevuSaati" required>
+        <div id="saatPanel" class="saat-panel gizli">
+          <p class="saat-panel-baslik">09:00 - 12:00 ve 13:00 - 17:00 arasi</p>
+          <div id="saatIzgarasi" class="saat-izgara"></div>
+        </div>
+      </div>
+
+      <button type="submit" class="gonder-buton">Randevu Olustur</button>
+    </form>
+  </main>
+
+  <footer class="sayfa-alt">
+    <p>&copy; 2026 Saglik Hastanesi. Tum haklari saklidir.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
