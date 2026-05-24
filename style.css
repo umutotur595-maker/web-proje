@@ -4,6 +4,8 @@
   hero-kutusu, hero-gorsel, hero-metin: ana sayfa karşılama
   hakkimda-kutu: hastane hakkinda metin kutusu
   doktorlar-alan, doktor-karti, doktor-foto: doktor kartlari
+  randevu-ikili, randevu-gorsel-kutu, randevu-gorsel-metin: randevu sayfasi sol gorsel alani
+  randevu-form-alan: randevu sayfasi sag form alani
   randevu-formu, gonder-buton: randevu formu ve buton
   ad-soyad-satir, tarih-secim-satir: yan yana secim satirlari
   saat-ac-buton, saat-panel, saat-izgara: saat secim alani
@@ -118,6 +120,61 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; width: 
 .doktor-bolum { padding: 0 1rem 1.25rem; color: #2589c9; font-weight: 500; }
 
 .form-sayfa, .liste-sayfa { display: flex; flex-direction: column; align-items: center; }
+
+.randevu-sayfa { width: 100%; max-width: 1100px; }
+
+.randevu-ikili {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.randevu-gorsel-alan {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(26, 111, 181, 0.12);
+  min-height: 100%;
+}
+
+.randevu-gorsel-kutu {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  height: 100%;
+}
+
+.randevu-gorsel {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.randevu-gorsel-metin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(26, 111, 181, 0.85));
+  color: #fff;
+}
+
+.randevu-gorsel-metin h2 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+
+.randevu-gorsel-metin p { font-size: 1rem; opacity: 0.95; }
+
+.randevu-form-alan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.randevu-form-alan .sayfa-baslik { margin-bottom: 1rem; }
 
 .randevu-formu {
   background: #fff;
@@ -303,6 +360,14 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; width: 
   color: #e8f4fc;
   font-size: 0.9rem;
   margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .randevu-ikili { grid-template-columns: 1fr; }
+  .randevu-gorsel-kutu,
+  .randevu-gorsel { min-height: 240px; }
+  .randevu-gorsel-metin { padding: 1.25rem; }
+  .randevu-gorsel-metin h2 { font-size: 1.35rem; }
 }
 
 @media (max-width: 600px) {

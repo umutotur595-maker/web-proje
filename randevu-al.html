@@ -1,5 +1,9 @@
 <!--
   ust-menu, menu-link: navigasyon
+  randevu-ikili: sol gorsel ve sag form iki kolon
+  randevu-gorsel-alan, randevu-gorsel-kutu: sol taraf gorsel kutusu
+  randevu-gorsel, randevu-gorsel-metin: gorsel ve hero tarzi alt metin
+  randevu-form-alan: sag taraf form kutusu
   randevu-formu: randevu kayit formu
   bolumSecimi: bolum secim select
   doktorSecimi: doktor secim select
@@ -39,9 +43,20 @@
     </nav>
   </header>
 
-  <main class="form-sayfa">
-    <h2 class="sayfa-baslik">Online Randevu</h2>
-    <form id="randevuFormu" class="randevu-formu">
+  <main class="form-sayfa randevu-sayfa">
+    <div class="randevu-ikili">
+      <aside class="randevu-gorsel-alan">
+        <div class="randevu-gorsel-kutu">
+          <img class="randevu-gorsel" src="resimler/randevugorsel.png" alt="Randevu gorseli">
+          <div class="randevu-gorsel-metin">
+            <h2>Hizli Randevu</h2>
+            <p>Bir kac adimda online randevunuzu olusturun.</p>
+          </div>
+        </div>
+      </aside>
+      <div class="randevu-form-alan">
+        <h2 class="sayfa-baslik">Online Randevu</h2>
+        <form id="randevuFormu" class="randevu-formu">
       <label for="bolumSecimi">Bolum Secimi</label>
       <select id="bolumSecimi" name="bolumSecimi" required>
         <option value="">Bolum seciniz</option>
@@ -102,7 +117,9 @@
       </div>
 
       <button type="submit" class="gonder-buton">Randevu Olustur</button>
-    </form>
+        </form>
+      </div>
+    </div>
   </main>
 
   <footer class="sayfa-alt">
