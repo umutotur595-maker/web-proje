@@ -2,7 +2,9 @@
   ust-menu: ust navigasyon ve logo
   menu-link, aktif: menu baglantilari ve secili sayfa
   hero-kutusu, hero-gorsel, hero-metin: ana sayfa karşılama
-  hakkimda-kutu: hastane hakkinda metin kutusu
+  hastane-bolumu, hastane-kaydirici, hastane-karti: hastane kartlari slayt alani
+  konum-ac, konum-detay: konum acilir kutusu
+  kaydir-ok: slayt ok dugmeleri
   doktorlar-alan, doktor-karti, doktor-foto: doktor kartlari
   randevu-ikili, randevu-gorsel-kutu, randevu-gorsel-metin: randevu sayfasi sol gorsel alani
   randevu-form-alan: randevu sayfasi sag form alani
@@ -85,14 +87,140 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; width: 
 
 .hero-metin h2 { font-size: 2rem; margin-bottom: 0.25rem; }
 
-.hakkimda-kutu {
-  background: #fff;
-  padding: 1.75rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+.anasayfa-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  max-width: none;
+  width: 100%;
 }
 
-.hakkimda-kutu h3 { color: #1a6fb5; margin-bottom: 0.75rem; }
+.anasayfa-main .hero-kutusu {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.hastane-bolumu {
+  flex-shrink: 0;
+  padding: 2.5rem 1.5rem 3rem;
+  background: #f4f9fd;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hastane-baslik {
+  text-align: center;
+  color: #1a6fb5;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.hastane-kaydirici {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hastane-pencere {
+  flex: 1;
+  overflow: hidden;
+}
+
+.hastane-izgara {
+  display: flex;
+  width: 200%;
+  transition: transform 0.4s ease;
+}
+
+.hastane-karti {
+  flex: 0 0 25%;
+  padding: 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hastane-karti-ust {
+  background: #fff;
+  padding: 1.5rem 1.5rem 1rem;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 16px rgba(26, 111, 181, 0.08);
+  flex: 1;
+}
+
+.hastane-karti h3 {
+  font-size: 1.2rem;
+  color: #1e3a5f;
+  margin-bottom: 0.75rem;
+}
+
+.hastane-karti-ust > p {
+  color: #5a7a9a;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.konum-ac {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  background: #f0f7fc;
+  border: 1px solid #c5dff0;
+  border-radius: 8px;
+  color: #1a6fb5;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.konum-ac:hover { background: #e8f4fc; border-color: #1a6fb5; }
+
+.konum-ac.acik { border-radius: 8px 8px 0 0; border-bottom-color: transparent; }
+
+.konum-detay {
+  padding: 0.85rem 1rem;
+  background: #f8fbfe;
+  border: 1px solid #c5dff0;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.88rem;
+  color: #1e3a5f;
+  margin-bottom: 0.5rem;
+}
+
+.konum-detay.gizli { display: none; }
+
+.hastane-tel { margin-top: 0.5rem; color: #1a6fb5; font-weight: 600; }
+
+.hastane-karti-gorsel {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 6px 16px rgba(26, 111, 181, 0.1);
+}
+
+.kaydir-ok {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: #1a6fb5;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.kaydir-ok:hover:not(:disabled) { background: #155a94; }
+
+.kaydir-ok:disabled { opacity: 0.35; cursor: not-allowed; }
 
 .sayfa-baslik { text-align: center; color: #1a6fb5; margin-bottom: 1.5rem; }
 

@@ -14,8 +14,11 @@
   secilenTarihiGuncelle: gizli randevuTarihi alanini gunceller
   saatSec: secilen saati kaydeder
   saatListesi: uygun randevu saatleri
+  hastaneKaydir: ana sayfa hastane slaytini kaydirir
+  konumAcKapat: konum detay kutusunu acar/kapatir
 */
 var saatListesi = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00'];
+var hastaneKaydirAktif = 0;
 var ayListesi = [
   { no: '01', ad: 'Ocak' }, { no: '02', ad: 'Subat' }, { no: '03', ad: 'Mart' },
   { no: '04', ad: 'Nisan' }, { no: '05', ad: 'Mayis' }, { no: '06', ad: 'Haziran' },
@@ -92,7 +95,37 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  var izgara = document.getElementById('hastaneIzgara');
+  if (izgara) {
+    document.getElementById('hastaneOnceki').addEventListener('click', function () { hastaneKaydir(hastaneKaydirAktif - 1); });
+    document.getElementById('hastaneSonraki').addEventListener('click', function () { hastaneKaydir(hastaneKaydirAktif + 1); });
+    document.querySelectorAll('.konum-ac').forEach(function (btn) {
+      btn.addEventListener('click', function () { konumAcKapat(btn); });
+    });
+    hastaneKaydir(0);
+    window.addEventListener('resize', function () { hastaneKaydir(hastaneKaydirAktif); });
+  }
 });
+
+function hastaneSonSayfa() {
+  return window.innerWidth <= 768 ? 3 : 1;
+}
+
+function hastaneKaydir(guncel) {
+  var izgara = document.getElementById('hastaneIzgara');
+  if (!izgara) return;
+  hastaneKaydirAktif = Math.max(0, Math.min(hastaneSonSayfa(), guncel));
+  var adim = window.innerWidth <= 768 ? 25 : 50;
+  izgara.style.transform = 'translateX(-' + (hastaneKaydirAktif * adim) + '%)';
+  document.getElementById('hastaneOnceki').disabled = hastaneKaydirAktif === 0;
+  document.getElementById('hastaneSonraki').disabled = hastaneKaydirAktif === hastaneSonSayfa();
+}
+
+function konumAcKapat(btn) {
+  var detay = btn.nextElementSibling;
+  detay.classList.toggle('gizli');
+  btn.classList.toggle('acik');
+}
 
 function saatiSifirla() {
   var saatInput = document.getElementById('randevuSaati');

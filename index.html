@@ -3,9 +3,12 @@
   logo-baslik: hastane adi basligi
   menu-link: sayfa baglantilari
   hero-kutusu: ana karşılama alani
-  hero-gorsel: hastane buyuk gorsel placeholder
-  hero-metin: karşılama baslik ve alt yazi
-  hakkimda-kutu: hastane hakkinda kisa bilgi metni
+  hero-gorsel, hero-metin: buyuk gorsel ve ust metin
+  hastane-bolumu: hastane kartlari kaydirici alani
+  hastane-kaydirici, hastane-pencere, hastane-izgara: 2'li slayt yapisi
+  hastane-karti: tek hastane karti
+  konum-ac, konum-detay: yuzeysel konum ve acilan detay kutusu
+  kaydir-ok: ileri geri ok dugmeleri
   sayfa-alt: alt bilgi alani
 -->
 <!DOCTYPE html>
@@ -13,7 +16,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ana Sayfa | UB Health </title>
+  <title>Ana Sayfa | UB Health</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,7 +30,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="anasayfa-main">
     <section class="hero-kutusu">
       <img id="hero-gorsel" class="hero-gorsel" src="resimler/hastaneresmi.png" alt="Hastane gorseli">
       <div class="hero-metin">
@@ -36,14 +39,70 @@
       </div>
     </section>
 
-    <section class="hakkimda-kutu">
-      <h3>Hakkimizda</h3>
-      <p>Saglik Hastanesi olarak hasta guvenligini ve konforunu on planda tutuyoruz. Uzman doktor kadromuz ve 7/24 acil servisimizle ailenizin sagligina guvenle emanet edebilirsiniz.</p>
+    <section class="hastane-bolumu">
+      <h2 class="hastane-baslik">Hastanelerimiz</h2>
+      <div class="hastane-kaydirici">
+        <button type="button" class="kaydir-ok sol-ok" id="hastaneOnceki" aria-label="Onceki hastaneler">&lsaquo;</button>
+        <div class="hastane-pencere">
+          <div class="hastane-izgara" id="hastaneIzgara">
+            <article class="hastane-karti">
+              <div class="hastane-karti-ust">
+                <h3>Istanbul UB Health</h3>
+                <p>Kardiyoloji, dahiliye ve acil servis birimleriyle 7/24 hizmet veren merkez hastanemiz.</p>
+                <button type="button" class="konum-ac">Atasehir, Istanbul</button>
+                <div class="konum-detay gizli">
+                  <p>Kayisdagi Cad. No: 42 Atasehir / Istanbul</p>
+                  <p class="hastane-tel">Tel: 0212 555 01 01</p>
+                </div>
+              </div>
+              <img class="hastane-karti-gorsel" src="https://via.placeholder.com/500x280/1a6fb5/ffffff?text=Istanbul" alt="Istanbul UB Health">
+            </article>
+            <article class="hastane-karti">
+              <div class="hastane-karti-ust">
+                <h3>Ankara UB Health</h3>
+                <p>Genis poliklinik agi ve ileri goruntuleme merkezi ile baskentte saglik hizmeti.</p>
+                <button type="button" class="konum-ac">Cankaya, Ankara</button>
+                <div class="konum-detay gizli">
+                  <p>Kizilirmak Cad. No: 18 Cankaya / Ankara</p>
+                  <p class="hastane-tel">Tel: 0312 555 02 02</p>
+                </div>
+              </div>
+              <img class="hastane-karti-gorsel" src="https://via.placeholder.com/500x280/2589c9/ffffff?text=Ankara" alt="Ankara UB Health">
+            </article>
+            <article class="hastane-karti">
+              <div class="hastane-karti-ust">
+                <h3>Ordu UB Health</h3>
+                <p>Karadeniz bolgesinde uzman hekim kadrosu ve modern ameliyathane uniteleri.</p>
+                <button type="button" class="konum-ac">Altinordu, Ordu</button>
+                <div class="konum-detay gizli">
+                  <p>Millet Sok. No: 7 Altinordu / Ordu</p>
+                  <p class="hastane-tel">Tel: 0452 555 03 03</p>
+                </div>
+              </div>
+              <img class="hastane-karti-gorsel" src="https://via.placeholder.com/500x280/1a6fb5/ffffff?text=Ordu" alt="Ordu UB Health">
+            </article>
+            <article class="hastane-karti">
+              <div class="hastane-karti-ust">
+                <h3>Isparta UB Health</h3>
+                <p>Aile hekimligi, cocuk sagligi ve dahiliye bolumleriyle bolgeye ozel saglik cozumleri.</p>
+                <button type="button" class="konum-ac">Merkez, Isparta</button>
+                <div class="konum-detay gizli">
+                  <p>Suleyman Demirel Bulvari No: 55 Merkez / Isparta</p>
+                  <p class="hastane-tel">Tel: 0246 555 04 04</p>
+                </div>
+              </div>
+              <img class="hastane-karti-gorsel" src="https://via.placeholder.com/500x280/2589c9/ffffff?text=Isparta" alt="Isparta UB Health">
+            </article>
+          </div>
+        </div>
+        <button type="button" class="kaydir-ok sag-ok" id="hastaneSonraki" aria-label="Sonraki hastaneler">&rsaquo;</button>
+      </div>
     </section>
   </main>
 
   <footer class="sayfa-alt">
     <p>&copy; 2026 UB Health. Tum haklari saklidir.</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
