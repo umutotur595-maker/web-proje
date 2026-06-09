@@ -1,10 +1,15 @@
 /*
   ust-menu: ust navigasyon ve logo
   menu-link, aktif: menu baglantilari ve secili sayfa
-  hero-kutusu, hero-gorsel, hero-metin: ana sayfa karşılama
+  hero-kutusu, hero-video, hero-metin: ana sayfa karşılama videosu
   hastane-bolumu, hastane-kaydirici, hastane-karti: hastane kartlari slayt alani
   konum-ac, konum-detay: konum acilir kutusu
   kaydir-ok: slayt ok dugmeleri
+  istatistik-bolumu: istatistik kartlari alani
+  istatistik-izgara: istatistik kartlarini tutan ızgara
+  istatistik-karti: tek istatistik karti (acik mavi arka plan, beyaz yazi)
+  istatistik-sayi: buyuk sayi metni
+  istatistik-aciklama: kucuk aciklama metni
   doktorlar-alan, doktor-karti, doktor-foto: doktor kartlari
   randevu-ikili, randevu-gorsel-kutu, randevu-gorsel-metin: randevu sayfasi sol gorsel alani
   randevu-form-alan: randevu sayfasi sag form alani
@@ -19,7 +24,9 @@
   durum-iptal: iptal edilmis yazisi
   iptal-buton: kirmizi yuvarlatilmis iptal dugmesi
   durum-hucre: durum ve buton hucre stili
-  sayfa-alt: footer
+  vizyon-banner, vizyon-kutu: arka plan gorselli vizyon alani
+  kurumsal-sayfa, kurumsal-kutu, hizmet-listesi: kurumsal sayfa bolumleri
+  buyuk-footer, footer-icerik, footer-menu: genis alt bilgi alani
 */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -73,7 +80,13 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; width: 
   margin-bottom: 2rem;
 }
 
-.hero-gorsel { width: 100%; height: 450px; object-fit: cover; display: block; }
+.hero-video {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+  background: #1a6fb5;
+}
 
 .hero-metin {
   position: absolute;
@@ -221,6 +234,41 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; width: 
 .kaydir-ok:hover:not(:disabled) { background: #155a94; }
 
 .kaydir-ok:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.istatistik-bolumu {
+  padding: 0 1.5rem 3rem;
+  background: #f4f9fd;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.istatistik-izgara {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.istatistik-karti {
+  background: linear-gradient(135deg, #1a6fb5, #2589c9);
+  border-radius: 20px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(26, 111, 181, 0.25);
+}
+
+.istatistik-sayi {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.istatistik-aciklama {
+  font-size: 1.25rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
 
 .sayfa-baslik { text-align: center; color: #1a6fb5; margin-bottom: 1.5rem; }
 
@@ -481,14 +529,157 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; width: 
 
 .bos-mesaj { text-align: center; color: #8aa8c4; padding: 2rem; }
 
-.sayfa-alt {
-  text-align: center;
-  padding: 1rem;
-  background: #1a6fb5;
-  color: #e8f4fc;
-  font-size: 0.9rem;
-  margin-top: auto;
+.kurumsal-sayfa { padding: 0; max-width: none; width: 100%; }
+
+.vizyon-banner {
+  background-image: url('resimler/kurumsal.png');
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 1rem;
 }
+
+.vizyon-banner-katman {
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(21, 90, 148, 0.6), rgba(37, 137, 201, 0.5));
+}
+
+.kurumsal-baslik {
+  color: #fff;
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.vizyon-kutu {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: calc(100% - 3rem);
+  margin: -5rem auto 2.5rem;
+  background: #fff;
+  padding: 2.25rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(26, 111, 181, 0.15);
+}
+
+.vizyon-kutu h3,
+.kurumsal-kutu h3 {
+  color: #1a6fb5;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.vizyon-kutu p,
+.kurumsal-kutu p {
+  color: #1e3a5f;
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.kurumsal-icerik {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.kurumsal-kutu {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(26, 111, 181, 0.1);
+}
+
+.hizmet-listesi {
+  margin: 0.5rem 0 0 1.25rem;
+  color: #1e3a5f;
+}
+
+.hizmet-listesi li { margin-bottom: 0.5rem; line-height: 1.6; }
+
+.buyuk-footer {
+  margin-top: auto;
+  background: linear-gradient(180deg, #155a94, #1a6fb5);
+  color: #e8f4fc;
+}
+
+.footer-icerik {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.footer-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-gorsel {
+  width: 260px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.footer-slogan { font-size: 1.1rem; opacity: 0.9; line-height: 1.5; }
+
+.footer-baslik {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.footer-satir {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.footer-satir span { font-weight: 600; margin-right: 0.35rem; }
+
+.footer-satir a { color: #e8f4fc; text-decoration: none; }
+
+.footer-satir a:hover { text-decoration: underline; }
+
+.footer-menu-alan {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 2rem 2rem;
+  text-align: center;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.footer-link:hover { background: rgba(255, 255, 255, 0.15); }
+
+.footer-telif { font-size: 0.85rem; opacity: 0.85; }
 
 @media (max-width: 768px) {
   .randevu-ikili { grid-template-columns: 1fr; }
@@ -499,7 +690,12 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; width: 
 }
 
 @media (max-width: 600px) {
-  .hero-gorsel { height: 220px; }
+  .footer-icerik { grid-template-columns: 1fr; padding: 2rem 1.25rem 1.5rem; }
+  .vizyon-banner-katman { min-height: 260px; }
+  .kurumsal-baslik { font-size: 2rem; }
+  .vizyon-kutu { width: calc(100% - 2rem); margin-top: -3.5rem; padding: 1.5rem; }
+  .kurumsal-kutu { padding: 1.5rem; }
+  .hero-video { height: 220px; }
   .hero-metin h2 { font-size: 1.5rem; }
   .randevu-formu { padding: 1.5rem 1.25rem; max-width: 100%; }
   .ad-soyad-satir,

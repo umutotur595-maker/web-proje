@@ -3,13 +3,19 @@
   logo-baslik: hastane adi basligi
   menu-link: sayfa baglantilari
   hero-kutusu: ana karşılama alani
-  hero-gorsel, hero-metin: buyuk gorsel ve ust metin
+  hero-video: ana sayfa arka plan videosu (autoplay, muted, loop)
+  hero-metin: hero ust metin katmani
   hastane-bolumu: hastane kartlari kaydirici alani
   hastane-kaydirici, hastane-pencere, hastane-izgara: 2'li slayt yapisi
   hastane-karti: tek hastane karti
   konum-ac, konum-detay: yuzeysel konum ve acilan detay kutusu
   kaydir-ok: ileri geri ok dugmeleri
-  sayfa-alt: alt bilgi alani
+  istatistik-bolumu: istatistik kartlari alani
+  istatistik-izgara: istatistik kartlarini tutan ızgara
+  istatistik-karti: tek istatistik karti (acik mavi arka plan, beyaz yazi)
+  istatistik-sayi: buyuk sayi metni
+  istatistik-aciklama: kucuk aciklama metni
+  buyuk-footer: genis alt bilgi ve iletisim alani
 -->
 <!DOCTYPE html>
 <html lang="tr">
@@ -24,6 +30,7 @@
     <a href="index.html" class="logo-link"><h1 class="logo-baslik">UB Health</h1></a>
     <nav>
       <a class="menu-link aktif" href="index.html">Ana Sayfa</a>
+      <a class="menu-link" href="kurumsal.html">Kurumsal</a>
       <a class="menu-link" href="doktorlar.html">Doktorlar</a>
       <a class="menu-link" href="randevu-al.html">Randevu Al</a>
       <a class="menu-link" href="randevularim.html">Randevularim</a>
@@ -32,7 +39,9 @@
 
   <main class="anasayfa-main">
     <section class="hero-kutusu">
-      <img id="hero-gorsel" class="hero-gorsel" src="resimler/hastaneresmi.png" alt="Hastane gorseli">
+      <video id="heroVideo" class="hero-video" autoplay muted loop playsinline>
+        <source src="resimler/hastanevideo.mp4">
+      </video>
       <div class="hero-metin">
         <h2>Sagliginiz Guvende</h2>
         <p>Modern tibbi altyapi ve deneyimli ekibimizle yaninizdayiz.</p>
@@ -55,7 +64,7 @@
                   <p class="hastane-tel">Tel: 0212 555 01 01</p>
                 </div>
               </div>
-              <img class="hastane-karti-gorsel" src="https://via.placeholder.com/500x280/1a6fb5/ffffff?text=Istanbul" alt="Istanbul UB Health">
+              <img class="hastane-karti-gorsel" src="resimler/istanbul.png" alt="Istanbul UB Health">
             </article>
             <article class="hastane-karti">
               <div class="hastane-karti-ust">
@@ -67,7 +76,7 @@
                   <p class="hastane-tel">Tel: 0312 555 02 02</p>
                 </div>
               </div>
-              <img class="hastane-karti-gorsel" src="https://via.placeholder.com/500x280/2589c9/ffffff?text=Ankara" alt="Ankara UB Health">
+              <img class="hastane-karti-gorsel" src="resimler/ankara.png" alt="Ankara UB Health">
             </article>
             <article class="hastane-karti">
               <div class="hastane-karti-ust">
@@ -79,7 +88,7 @@
                   <p class="hastane-tel">Tel: 0452 555 03 03</p>
                 </div>
               </div>
-              <img class="hastane-karti-gorsel" src="https://via.placeholder.com/500x280/1a6fb5/ffffff?text=Ordu" alt="Ordu UB Health">
+              <img class="hastane-karti-gorsel" src="resimler/ordu.png" alt="Ordu UB Health">
             </article>
             <article class="hastane-karti">
               <div class="hastane-karti-ust">
@@ -91,17 +100,60 @@
                   <p class="hastane-tel">Tel: 0246 555 04 04</p>
                 </div>
               </div>
-              <img class="hastane-karti-gorsel" src="https://via.placeholder.com/500x280/2589c9/ffffff?text=Isparta" alt="Isparta UB Health">
+              <img class="hastane-karti-gorsel" src="resimler/ısparta.png" alt="Isparta UB Health">
             </article>
           </div>
         </div>
         <button type="button" class="kaydir-ok sag-ok" id="hastaneSonraki" aria-label="Sonraki hastaneler">&rsaquo;</button>
       </div>
     </section>
+
+    <section class="istatistik-bolumu">
+      <div class="istatistik-izgara">
+        <article class="istatistik-karti">
+          <div class="istatistik-sayi">700,000+</div>
+          <div class="istatistik-aciklama">Yillik Ortalama Hasta Sayisi</div>
+        </article>
+        <article class="istatistik-karti">
+          <div class="istatistik-sayi">+301</div>
+          <div class="istatistik-aciklama">Yatak Kapasitesi</div>
+        </article>
+        <article class="istatistik-karti">
+          <div class="istatistik-sayi">+65</div>
+          <div class="istatistik-aciklama">Ulkeden Gelen Hasta</div>
+        </article>
+        <article class="istatistik-karti">
+          <div class="istatistik-sayi">25,000+</div>
+          <div class="istatistik-aciklama">Yillik Ameliyat</div>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <footer class="sayfa-alt">
-    <p>&copy; 2026 UB Health. Tum haklari saklidir.</p>
+  <footer class="buyuk-footer">
+    <div class="footer-icerik">
+      <div class="footer-logo-alan">
+        <a href="index.html" class="footer-logo-link">
+          <img class="footer-logo-gorsel" src="resimler/logo.png" alt="UB Health logo">
+        </a>
+        <p class="footer-slogan">Sagliginiz icin guvenilir cozum ortaginiz.</p>
+      </div>
+      <div class="footer-bilgi-alan">
+        <h3 class="footer-baslik">Iletisim</h3>
+        <p class="footer-satir"><span>Konum:</span> Atasehir, Istanbul</p>
+        <p class="footer-satir"><span>Adres:</span> Kayisdagi Cad. No: 42 Atasehir / Istanbul</p>
+        <p class="footer-satir"><span>Telefon:</span> <a href="tel:02125550000">0212 555 00 00</a></p>
+        <p class="footer-satir"><span>E-posta:</span> <a href="mailto:info@ubhealth.com">info@ubhealth.com</a></p>
+      </div>
+    </div>
+    <div class="footer-menu-alan">
+      <nav class="footer-menu">
+        <a class="footer-link" href="doktorlar.html">Doktorlar</a>
+        <a class="footer-link" href="randevu-al.html">Randevu Al</a>
+        <a class="footer-link" href="randevularim.html">Randevularim</a>
+      </nav>
+      <p class="footer-telif">&copy; 2026 UB Health. Tum haklari saklidir.</p>
+    </div>
   </footer>
   <script src="script.js"></script>
 </body>

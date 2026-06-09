@@ -4,6 +4,7 @@
   randevu-tablo: tablo stili (JS ile olusturulur)
   bos-mesaj: kayit yoksa gosterilen metin
   durum-aktif, iptal-buton, durum-iptal: randevu durumu ve iptal (JS ile)
+  buyuk-footer: genis alt bilgi alani
 -->
 <!DOCTYPE html>
 <html lang="tr">
@@ -18,6 +19,7 @@
     <a href="index.html" class="logo-link"><h1 class="logo-baslik">UB Health</h1></a>
     <nav>
       <a class="menu-link" href="index.html">Ana Sayfa</a>
+      <a class="menu-link" href="kurumsal.html">Kurumsal</a>
       <a class="menu-link" href="doktorlar.html">Doktorlar</a>
       <a class="menu-link" href="randevu-al.html">Randevu Al</a>
       <a class="menu-link aktif" href="randevularim.html">Randevularim</a>
@@ -29,8 +31,30 @@
     <div id="randevuListesi" class="randevu-liste-kutu"></div>
   </main>
 
-  <footer class="sayfa-alt">
-    <p>&copy; 2026 UB Health. Tum haklari saklidir.</p>
+  <footer class="buyuk-footer">
+    <div class="footer-icerik">
+      <div class="footer-logo-alan">
+        <a href="index.html" class="footer-logo-link">
+          <img class="footer-logo-gorsel" src="resimler/logo.png" alt="UB Health logo">
+        </a>
+        <p class="footer-slogan">Sagliginiz icin guvenilir cozum ortaginiz.</p>
+      </div>
+      <div class="footer-bilgi-alan">
+        <h3 class="footer-baslik">Iletisim</h3>
+        <p class="footer-satir"><span>Konum:</span> Atasehir, Istanbul</p>
+        <p class="footer-satir"><span>Adres:</span> Kayisdagi Cad. No: 42 Atasehir / Istanbul</p>
+        <p class="footer-satir"><span>Telefon:</span> <a href="tel:02125550000">0212 555 00 00</a></p>
+        <p class="footer-satir"><span>E-posta:</span> <a href="mailto:info@ubhealth.com">info@ubhealth.com</a></p>
+      </div>
+    </div>
+    <div class="footer-menu-alan">
+      <nav class="footer-menu">
+        <a class="footer-link" href="doktorlar.html">Doktorlar</a>
+        <a class="footer-link" href="randevu-al.html">Randevu Al</a>
+        <a class="footer-link" href="randevularim.html">Randevularim</a>
+      </nav>
+      <p class="footer-telif">&copy; 2026 UB Health. Tum haklari saklidir.</p>
+    </div>
   </footer>
   <script src="script.js"></script>
 </body>
