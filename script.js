@@ -16,6 +16,8 @@
   saatListesi: uygun randevu saatleri
   hastaneKaydir: ana sayfa hastane slaytini kaydirir
   konumAcKapat: konum detay kutusunu acar/kapatir
+  showNotification: alt sol kosede bildirim gosterir
+  bildirimKutusu: bildirimlerin gosterildigi div
 */
 var saatListesi = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00'];
 var hastaneKaydirAktif = 0;
@@ -25,6 +27,25 @@ var ayListesi = [
   { no: '07', ad: 'Temmuz' }, { no: '08', ad: 'Agustos' }, { no: '09', ad: 'Eylul' },
   { no: '10', ad: 'Ekim' }, { no: '11', ad: 'Kasim' }, { no: '12', ad: 'Aralik' }
 ];
+
+function showNotification(mesaj, tip) {
+  var kutu = document.getElementById('bildirimKutusu');
+  if (!kutu) return;
+  var bildirim = document.createElement('div');
+  bildirim.className = 'bildirim-mesaji ' + (tip === 'basari' ? 'basari-bildirimi' : 'hata-bildirimi');
+  bildirim.textContent = mesaj;
+  kutu.appendChild(bildirim);
+  setTimeout(function() {
+    bildirim.style.opacity = '0';
+    bildirim.style.transform = 'translateY(20px)';
+    bildirim.style.transition = 'opacity 0.3s, transform 0.3s';
+    setTimeout(function() {
+      if (bildirim.parentNode) {
+        bildirim.parentNode.removeChild(bildirim);
+      }
+    }, 300);
+  }, 3000);
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('randevuFormu');
@@ -48,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     doktorlariFiltrele();
     saatButon.addEventListener('click', function () {
-      if (!doktorKutusu.value) { alert('Once doktor seciniz.'); return; }
-      if (!tarihKutusu.value) { alert('Lutfen randevu tarihi secin.'); return; }
+      if (!doktorKutusu.value) { showNotification('Once doktor seciniz.', 'hata'); return; }
+      if (!tarihKutusu.value) { showNotification('Lutfen randevu tarihi secin.', 'hata'); return; }
       saatPanel.classList.toggle('gizli');
       if (!saatPanel.classList.contains('gizli')) saatleriYukle();
     });
@@ -58,11 +79,11 @@ document.addEventListener('DOMContentLoaded', function () {
       var tcDeger = document.getElementById('tcKimlik').value;
       var telDeger = document.getElementById('telefonNumarasi').value;
       if (!tcVeTelefonKontrol(tcDeger, telDeger)) return;
-      if (!tarihKutusu.value) { alert('Lutfen randevu tarihi secin.'); return; }
+      if (!tarihKutusu.value) { showNotification('Lutfen randevu tarihi secin.', 'hata'); return; }
       var secilenSaat = document.getElementById('randevuSaati').value;
-      if (!secilenSaat) { alert('Lutfen randevu saati secin.'); return; }
+      if (!secilenSaat) { showNotification('Lutfen randevu saati secin.', 'hata'); return; }
       if (doluSaatleriGetir(doktorKutusu.value, tarihKutusu.value).indexOf(secilenSaat) !== -1) {
-        alert('Bu tarih ve saatte randevu dolu.');
+        showNotification('Bu tarih ve saatte randevu dolu.', 'hata');
         saatiSifirla();
         saatleriYukle();
         return;
@@ -78,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         tarih: tarihKutusu.value,
         saat: secilenSaat
       });
-      alert('Randevu basariyla alindi!');
+      showNotification('Randevu basariyla alindi!', 'basari');
       form.reset();
       tarihSeciminiHazirla();
       saatiSifirla();
@@ -233,11 +254,11 @@ function saatSec(saat) {
 
 function tcVeTelefonKontrol(tc, telefon) {
   if (tc.replace(/\D/g, '').length !== 11) {
-    alert('Gecerli bir TC no girin.');
+    showNotification('Gecerli bir TC no girin.', 'hata');
     return false;
   }
   if (telefon.replace(/\D/g, '').length !== 11) {
-    alert('Gecerli bir telefon numarasi girin.');
+    showNotification('Gecerli bir telefon numarasi girin.', 'hata');
     return false;
   }
   return true;
