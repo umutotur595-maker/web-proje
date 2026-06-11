@@ -1,5 +1,6 @@
 # web-proje
-🎓 Öğrenci ve Ders Bilgileri 
+
+##🎓 Öğrenci ve Ders Bilgileri 
 Üniversite: Isparta Uygulamalı Bilimler Üniversitesi
 
 Fakülte / Bölüm: Teknoloji Fakültesi / Bilgisayar Mühendisliği Bölümü
@@ -14,7 +15,7 @@ Proje Ekibi:
 
 Akademik Yıl / Dönem: 2025-2026 / Bahar
 
-💻 Kurulum ve Çalıştırma (How to Run)
+##💻 Kurulum ve Çalıştırma (How to Run)
 Proje herhangi bir backend sunucusu (Node.js, PHP, Python vb.) veya harici SQL veritabanı bağımlılığı gerektirmediği için doğrudan tarayıcı üzerinde çalıştırılabilir:
 
 Bu depoyu (repository) bilgisayarınıza indirin veya kopyalayın:
