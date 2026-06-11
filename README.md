@@ -19,8 +19,9 @@ Proje herhangi bir backend sunucusu (Node.js, PHP, Python vb.) veya harici SQL v
 
 Bu depoyu (repository) bilgisayarınıza indirin veya kopyalayın:
 
-Bash
+```bash
 git clone https://github.com/umutotur595-maker/web-proje.git
+```
 Proje klasörünü VS Code veya herhangi bir editör ile açın.
 
 index.html dosyasına sağ tıklayarak Open with Live Server seçeneğini seçin (Geliştirici ortamında sayfalar arası localStorage senkronizasyonunun kusursuz çalışması için Live Server ile açılması tavsiye edilir).
